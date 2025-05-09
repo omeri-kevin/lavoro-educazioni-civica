@@ -1,7 +1,7 @@
 parole_sospette = {
-    "shock": -2,
+    "shock": -4,
     "incredibile": -2, 
-    "complotto": -2,
+    "complotto": -4,
     "miracoloso": -2,
     "scandalo": -2
 }
@@ -9,9 +9,9 @@ parole_sospette = {
 parole_affidabili = {
     "studio": 2,
     "ricerca": 2,
-    "esperti": 2,
+    "esperti": 3,
     "ufficiale": 2, 
-    "verificato": 2
+    "verificato": 4
 }
 
 def analizza_notizia(titolo):
