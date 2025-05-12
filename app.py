@@ -3,7 +3,12 @@ parole_sospette = {
     "incredibile": -2, 
     "complotto": -4,
     "miracoloso": -2,
-    "scandalo": -2
+    "scandalo": -2,
+    "segreto": -3,
+    "allarme": -2,
+    "terribile": -3,
+    "cospirazione": -4,
+    "pericolo": -2
 }
 
 parole_affidabili = {
@@ -11,32 +16,33 @@ parole_affidabili = {
     "ricerca": 2,
     "esperti": 3,
     "ufficiale": 2, 
-    "verificato": 4
+    "verificato": 4,
+    "scientifico": 3,
+    "analisi": 2,
+    "conferma": 2,
+    "documento": 2,
+    "fonte": 3
 }
-
-def analizza_notizia(titolo):
-    punti = 0
-    titolo = titolo.lower()
-    
-
-    for parola in parole_sospette:
-        if parola in titolo:
-            punti = punti - 2
-        
-    for parola in parole_affidabili:
-        if parola in titolo:
-            punti = punti + 2
-   
-    if punti < 0:
-        return "FAKE NEWS"
-    if punti == 0: 
-        return "DUBBIA"
-    return "VERA"
 
 while True:
     notizia = input("Scrivi una notizia (o fine per terminare): ")
     if notizia == "fine":
         break
-        
-    risultato = analizza_notizia(notizia)
-    print(f"La notizia è: {risultato}")
+    
+    punti = 0
+    notizia = notizia.lower()
+    
+    for parola in parole_sospette:
+        if parola in notizia:
+            punti = punti - 2
+            
+    for parola in parole_affidabili:
+        if parola in notizia:
+            punti = punti + 2
+            
+    if punti < 0:
+        print("La notizia è: FAKE NEWS")
+    elif punti == 0:
+        print("La notizia è: DUBBIA")
+    elif punti > 0:
+        print("La notizia è: VERA")
